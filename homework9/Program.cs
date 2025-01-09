@@ -21,6 +21,7 @@ namespace homework9
         /// </summary>
         static void Taska()
         {
+            Console.WriteLine("Первая таска");
             Boss olivie = new Boss("Оливье Ганьян");
 
             AddDefaultGames(olivie);

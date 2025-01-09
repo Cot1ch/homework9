@@ -21,6 +21,8 @@ namespace Tumakov9
         /// </summary>
         static void Task1()
         {
+            Console.WriteLine("Упражнение 10.1\n");
+
             bool flag = true;
             do
             {
@@ -74,6 +76,8 @@ namespace Tumakov9
         /// </summary>
         static void Task2()
         {
+            Console.WriteLine("Домашнее задание 10.1\n");
+
             Console.WriteLine("\tРаботаем с точкой ========\n");
             Point point = new Point(Colors.Чёрный, EVisibility.Invisible);
             Console.WriteLine(point.ToString());
