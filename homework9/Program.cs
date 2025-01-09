@@ -69,7 +69,7 @@ namespace homework9
             }
             while (flag);
 
-
+            // Игра
             flag = true;
             do
             {

@@ -12,7 +12,7 @@ namespace Tumakov9
 
         #region Constructor
 
-        public Circle(double rad)
+        public Circle(double rad) : base()
         {
             _Rad = rad;
         }
@@ -30,6 +30,10 @@ namespace Tumakov9
             return _Rad * _Rad * Math.PI;
         }
 
+        public override string ToString() 
+        {
+            return $"Радиус = {_Rad}\n" + base.ToString();
+        }
         #endregion
     }
 }

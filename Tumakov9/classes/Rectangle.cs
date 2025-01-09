@@ -45,6 +45,10 @@
             return _ASide * _BSide;
         }
 
+        public override string ToString()
+        {
+            return $"Размеры: {_ASide} x {_BSide}\n" + base.ToString();
+        }
         #endregion
     }
 }

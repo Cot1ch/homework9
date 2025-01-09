@@ -17,7 +17,7 @@ namespace Tumakov9
         public Figure()
         {
             _Color = Colors.Белый;
-            _Visibility = EVisibility.Visible;
+            _Visibility = EVisibility.Видимый;
             _X = 0;
             _Y = 0;
         }
@@ -57,7 +57,7 @@ namespace Tumakov9
         /// <returns>Строка string</returns>
         public override string ToString()
         {
-            string retStr = $"{this.GetType().Name}\nЦвет: {Color}\n{Visibility}\nПоложение: ({_X}, {_Y})\n";
+            string retStr = $"Положение: ({_X}, {_Y})\nЦвет: {Color}\nСостояние: {Visibility}";
 
             return retStr;
         }
@@ -67,7 +67,7 @@ namespace Tumakov9
         /// </summary>
         public void ShowVisibility()
         {
-            Console.WriteLine(Visibility);
+            Console.WriteLine($"Состояние: {Visibility}");
         }
 
         /// <summary>

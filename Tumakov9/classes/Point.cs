@@ -17,7 +17,7 @@
             X = 0;
             Y = 0;
         }
-        public Point() 
+        public Point() : base()
         { }
         #endregion
     }

@@ -29,7 +29,7 @@ namespace Tumakov9
                 Console.WriteLine("Выберите действие: Выход / начните ввод новой строки");
                 string input = Console.ReadLine();
 
-                if (input == "выход")
+                if (input.ToLower() == "выход")
                 {
                     flag = false;
                 }
@@ -79,46 +79,47 @@ namespace Tumakov9
             Console.WriteLine("Домашнее задание 10.1\n");
 
             Console.WriteLine("\tРаботаем с точкой ========\n");
-            Point point = new Point(Colors.Чёрный, EVisibility.Invisible);
+            Point point = new Point(12, 3, Colors.Чёрный, EVisibility.Невидимый);
             Console.WriteLine(point.ToString());
 
             point.MoveVert(10);
-            point.MoveHor(-5);
-            Console.WriteLine(point.ToString());
+            point.MoveHor(-5); // Меняем положение
+            Console.WriteLine();
 
-            point.ChangeColor(Colors.Красный);
+            point.ChangeColor(Colors.Красный); // Меняем цвет
             Console.WriteLine(point.ToString());
-            Console.WriteLine("Закончили работать с точкой ========\n");
+            Console.WriteLine("\nЗакончили работать с точкой ========\n");
 
 
             Console.WriteLine("\tРаботаем с кругом ========\n");
             Circle circle = new Circle(123);
             Console.WriteLine(circle.ToString());
 
-            Console.WriteLine($"Площадь круга: {circle.GetPl():F2}");
+            Console.WriteLine($"\nПлощадь круга: {circle.GetPl():F2}\n");
 
             circle.MoveVert(-10);
             circle.MoveHor(12);
-            Console.WriteLine(circle.ToString());
+            circle.ShowVisibility();
+            Console.WriteLine();
 
             circle.ChangeColor(Colors.Серый);
             Console.WriteLine(circle.ToString());
-            Console.WriteLine("Закончили работать с кругом ========\n");
+            Console.WriteLine("\nЗакончили работать с кругом ========\n");
 
 
             Console.WriteLine("\tРаботаем с прямоугольником ========\n");
             Rectangle rect = new  Rectangle(12.4, 24);
             Console.WriteLine(rect.ToString());
 
-            Console.WriteLine($"Площадь прямоугольника: {rect.GetPl():F2}");
+            Console.WriteLine($"\nПлощадь прямоугольника: {rect.GetPl():F2}\n");
 
             rect.MoveEverywhere(-10, 5);
-            Console.WriteLine(rect.ToString());
+            rect.ShowVisibility();
+            Console.WriteLine();
 
             rect.ChangeColor(Colors.Жёлтый);
             Console.WriteLine(rect.ToString());
-            rect.ShowVisibility();
-            Console.WriteLine("Закончили работать с прямоугольником ========\n");
+            Console.WriteLine("\nЗакончили работать с прямоугольником ========\n");
         }
     }
 }
