@@ -16,7 +16,9 @@ namespace Tumakov9
         public string Encode(string s)
         {
             char[] cyrAlf = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".ToCharArray();
+            char[] cyrUpperAlf = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".ToCharArray();
             char[] enAlf = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+            char[] enUpperAlf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
             string retstr = String.Empty;
 
             foreach (char c in s)
@@ -25,14 +27,22 @@ namespace Tumakov9
                 {
                     retstr += enAlf[(Array.IndexOf(enAlf, c) + 1) % 26];
                 }
+                else if (enUpperAlf.Contains(c))
+                {
+                    retstr += Char.ToUpper(enUpperAlf[(Array.IndexOf(enUpperAlf, c) + 1) % 26]);
+                }
                 else if (cyrAlf.Contains(c))
                 {
                     retstr += cyrAlf[(Array.IndexOf(cyrAlf, c) + 1) % 33];
                 }
+                else if (cyrUpperAlf.Contains(c))
+                {
+                    retstr += Char.ToUpper(cyrUpperAlf[(Array.IndexOf(cyrUpperAlf, c) + 1) % 33]);
+                }
                 else
                 {
                     retstr += c;
-                }
+                }                
             }
 
             return retstr;
@@ -46,32 +56,28 @@ namespace Tumakov9
         public string Decode(string s)
         {
             char[] cyrAlf = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".ToCharArray();
+            char[] cyrUpperAlf = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".ToCharArray();
             char[] enAlf = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+            char[] enUpperAlf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
             string retstr = String.Empty;
 
             foreach (char c in s)
             {
                 if (enAlf.Contains(c))
                 {
-                    if (c != 'a')
-                    {
-                        retstr += enAlf[(Array.IndexOf(enAlf, c) - 1) % 26];
-                    }
-                    else
-                    {
-                        retstr += "z";
-                    }
+                    retstr += enAlf[(Array.IndexOf(enAlf, c) + 25) % 26];
+                }
+                else if (enUpperAlf.Contains(c))
+                {
+                    retstr += Char.ToUpper(enUpperAlf[(Array.IndexOf(enUpperAlf, c) + 25) % 26]);
                 }
                 else if (cyrAlf.Contains(c))
                 {
-                    if (c != 'а')
-                    {
-                        retstr += cyrAlf[(Array.IndexOf(cyrAlf, c) - 1) % 33];
-                    }
-                    else
-                    {
-                        retstr += "я";
-                    }
+                    retstr += cyrAlf[(Array.IndexOf(cyrAlf, c) + 32) % 33];
+                }
+                else if (cyrUpperAlf.Contains(c))
+                {
+                    retstr += Char.ToUpper(cyrUpperAlf[(Array.IndexOf(cyrUpperAlf, c) + 32) % 33]);
                 }
                 else
                 {

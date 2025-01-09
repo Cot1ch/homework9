@@ -15,17 +15,29 @@ namespace Tumakov9
         /// <returns>Строка string</returns>
         public string Encode(string s)
         {
+            char[] cyrAlf = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".ToCharArray();
+            char[] cyrUpperAlf = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".ToCharArray();
+            char[] enAlf = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+            char[] enUpperAlf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
             string retstr = String.Empty;
 
             foreach (char c in s)
             {
-                if ("qwertyuiopasdfghjklzxcvbnm".ToCharArray().Contains(c)) //Проверка на алфавит
+                if (enAlf.Contains(c))
                 {
-                    retstr += (char)(-(c - 'a') + 'z');
+                    retstr += enAlf[25 - Array.IndexOf(enAlf, c)];
                 }
-                else if ("йцукенгшщзхъфывапролджэячсмитьбюё".ToCharArray().Contains(c))
+                else if (enUpperAlf.Contains(c))
                 {
-                    retstr += (char)(-(c - 'а') + 'я');
+                    retstr += enUpperAlf[25 - Array.IndexOf(enUpperAlf, c)];
+                }
+                else if (cyrAlf.Contains(c))
+                {
+                    retstr += cyrAlf[32 - Array.IndexOf(cyrAlf, c)];
+                }
+                else if (cyrUpperAlf.Contains(c))
+                {
+                    retstr += cyrUpperAlf[32 - Array.IndexOf(cyrUpperAlf, c)];
                 }
                 else
                 {
@@ -43,24 +55,7 @@ namespace Tumakov9
         /// <returns>Строка string</returns>
         public string Decode(string s)
         {
-            string retstr = String.Empty;
-            foreach (char c in s)
-            {
-                if ("qwertyuiopasdfghjklzxcvbnm".ToCharArray().Contains(c))
-                {
-                    retstr += (char)(-(c - 'a') + 'z');
-                }
-                else if ("йцукенгшщзхъфывапролджэячсмитьбюё".ToCharArray().Contains(c))
-                {
-                    retstr += (char)(-(c - 'а') + 'я');
-                }
-                else
-                {
-                    retstr += c;
-                }
-            }
-
-            return retstr;
+            return Encode(s); // Они одинаковы))
         }
 
         #endregion

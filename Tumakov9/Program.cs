@@ -24,7 +24,7 @@ namespace Tumakov9
             bool flag = true;
             do
             {
-                Console.WriteLine("Выберите действие: Выход / (не_выход)всё_остальное");
+                Console.WriteLine("Выберите действие: Выход / начните ввод новой строки");
                 string input = Console.ReadLine();
 
                 if (input == "выход")
@@ -33,8 +33,8 @@ namespace Tumakov9
                 }
                 else
                 {
-                    Console.WriteLine("Введите строку. Поддерживаются русский и английский алфавиты. Символ не из них не будет изменен");
-                    string str = Console.ReadLine();
+                    Console.WriteLine("Поддерживаются русский и английский алфавиты. Символ не из них не будет изменен");
+                    string str = input;
 
                     bool flag2 = true;
                     do
